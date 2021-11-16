@@ -1,5 +1,5 @@
 <template>
-  <div class="form">
+  <div class="step">
     <el-card :body-style="{ padding: '20px', minHeight: 'calc(100vh - 100px)' }">
       <!-- 常规进度条-start -->
       <formStep :stepData="stepData" :stepActive="stepActive"></formStep>
@@ -15,7 +15,7 @@
 <script>
 import { formStep, pageStep } from "@/components/index";
 export default {
-  name: "form",
+  name: "step",
   components: {
     formStep,
     pageStep

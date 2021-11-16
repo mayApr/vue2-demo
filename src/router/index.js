@@ -13,6 +13,11 @@ const routes = [{
     path: '/step',
     name: 'step',
     component: () => import('../views/step.vue')
+  },
+  {
+    path: '/formValidate',
+    name: 'formValidate',
+    component: () => import('../views/formValidate.vue')
   }
 ]
 

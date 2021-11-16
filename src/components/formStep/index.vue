@@ -55,7 +55,7 @@ export default {
     width: 100%;
     background: #d7d7d7;
     position: absolute;
-    top: 19.5px;
+    top: 14.5px;
     margin: 0 80px;
   }
   .stepActiveLine {
@@ -63,7 +63,7 @@ export default {
     width: 100%;
     background: #017f5a;
     position: absolute;
-    top: 19.5px;
+    top: 14.5px;
     margin: 0 80px;
     z-index: 5;
   }
@@ -79,8 +79,8 @@ export default {
       color: #8b8b8b;
     }
     .stepIndex {
-      width: 37px;
-      height: 37px;
+      width: 27px;
+      height: 27px;
       text-align: center;
       font-size: 16px;
       font-weight: bold;

@@ -21,6 +21,10 @@ export default {
         {
           id: 1,
           name: "step步骤条"
+        },
+        {
+          id: 2,
+          name: "form表单校验"
         }
       ]
     };
@@ -30,6 +34,8 @@ export default {
       let routesName = "";
       if (id == 1) {
         routesName = "step";
+      } else if (id == 2) {
+        routesName = "formValidate";
       }
       let routes = this.$router.resolve({
         name: routesName,
@@ -51,6 +57,7 @@ export default {
     .demoItem {
       font-size: 16px;
       margin: 0 20px 20px 0;
+      float: left;
     }
   }
 }

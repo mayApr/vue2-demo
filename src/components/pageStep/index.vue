@@ -93,8 +93,8 @@ export default {
       color: #8b8b8b;
     }
     .stepIndex {
-      width: 37px;
-      height: 37px;
+      width: 27px;
+      height: 27px;
       text-align: center;
       font-size: 16px;
       font-weight: bold;
