@@ -14,23 +14,16 @@
               :model="form"
               :rules="rules"
             >
-              <el-form-item
-                label="公司营业地址："
-                prop="companyAddress"
-                :rules="{required: true, message: '请输入公司营业地址', trigger: 'blur'}"
-              >
-                <el-input placeholder="请输入公司营业地址" v-model="form.companyAddress"></el-input>
+              <el-form-item label="公司营业地址：" prop="companyAddress" :rules="rules.companyAddress">
+                <el-input placeholder="请输入公司营业地址" v-model="form.companyAddress" clearable></el-input>
               </el-form-item>
-              <el-form-item
-                label="手机号码"
-                prop="phone"
-                :rules="[{ required: true, message: '请输入手机号码', trigger: 'blur' },{ pattern: 11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/, message: '手机号格式错误', trigger: 'blur' }]"
-              >
+              <el-form-item label="手机号码" prop="phone" :rules="rules.phone">
                 <el-input
                   type="phone"
                   placeholder="请输入手机号码"
                   v-model="form.phone"
-                  autocomplete="off"
+                  clearable
+                  maxlength="11"
                 ></el-input>
               </el-form-item>
             </el-form>
@@ -60,27 +53,40 @@
                 <el-form-item
                   label="姓名"
                   :prop="'applyFormData.' + index +'.name'"
-                  :rules="{required: true, message: '请输入姓名', trigger: 'blur'}"
+                  :rules="rules.name"
                 >
-                  <el-input placeholder="请输入姓名" v-model="item.name"></el-input>
+                  <el-input placeholder="请输入姓名" v-model="item.name" clearable></el-input>
                 </el-form-item>
 
                 <el-form-item
                   label="手机号码"
                   :prop="'applyFormData.' + index +'.phone'"
-                  :rules="[{ required: true, message: '请输入手机号码', trigger: 'blur' },{ pattern: 11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/, message: '手机号格式错误', trigger: 'blur' }]"
+                  :rules="rules.phone"
                 >
                   <el-input
                     type="phone"
                     placeholder="请输入手机号码"
                     v-model="item.phone"
-                    autocomplete="off"
+                    clearable
+                    maxlength="11"
                   ></el-input>
                 </el-form-item>
+                <div class="deleteBtn">
+                  <el-button
+                    type="danger"
+                    size="mini"
+                    @click="deleteApplyBaseData(index)"
+                    v-if="applyForm.applyFormData.length > 1"
+                  >删除</el-button>
+                </div>
               </div>
               <!-- 新增 -->
-              <el-button type="success" size="mini" @click="addApplyBaseData">新增</el-button>
-              <el-button type="danger" size="mini" @click="deleteApplyBaseData">删除</el-button>
+              <div
+                class="addBtn"
+                :style="{'margin-top':(applyForm.applyFormData.length < 2 ? '0px' : '-48px')}"
+              >
+                <el-button type="success" size="mini" @click="addApplyBaseData">新增</el-button>
+              </div>
             </el-form>
           </div>
           <div class="submitBtn">
@@ -100,7 +106,22 @@ export default {
   computed: {},
   data() {
     return {
-      rules: {},
+      rules: {
+        companyAddress: {
+          required: true,
+          message: "请输入公司营业地址",
+          trigger: "blur"
+        },
+        phone: [
+          { required: true, message: "请输入手机号码", trigger: "blur" },
+          {
+            pattern: 11 && /^(1[3-9](\d){9})$/,
+            message: "手机号格式错误",
+            trigger: "blur"
+          }
+        ],
+        name: { required: true, message: "请输入姓名", trigger: "blur" }
+      },
       //静态表单
       form: {
         companyAddress: "", //公司营业地址
@@ -146,7 +167,7 @@ export default {
       });
     },
 
-    //动态表单校验-确定
+    //动态表单校验-提交
     async submitMoreBtn() {
       this.$refs.applyForm.validate(async valid => {
         if (valid) {
@@ -156,7 +177,7 @@ export default {
       });
     },
 
-    //静态表单校验-确定
+    //静态表单校验-提交
     async submitBtn() {
       this.$refs.form.validate(async valid => {
         if (valid) {
@@ -190,5 +211,9 @@ export default {
   margin-bottom: 20px;
   color: #8b8b8b;
   font-size: 14px;
+}
+.deleteBtn {
+  margin-left: 150px;
+  margin-bottom: 20px;
 }
 </style>
