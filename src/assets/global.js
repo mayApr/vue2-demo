@@ -1,5 +1,14 @@
 let globalJs = {
-    // 时间戳转日期
+    /**
+     * 时间戳转日期
+     * @param {*} value 
+     * @param {*} timeType
+     * 第一个传入的参数value：时间的value值
+     * 第二个传入的参数timeType：是将时间的value值转换成你想要的格式：
+     * date就是转换成yyyy-MM-dd
+     * dateTime就是转换成yyyy-MM-dd HH:mm:ss
+     * time就是转换成HH:mm:ss
+     */
     formatDate(value, timeType) {
         if (value != null) {
             let date = new Date(value);

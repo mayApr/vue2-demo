@@ -11,18 +11,23 @@ const routes = [{
   },
   {
     path: '/step',
-    name: 'step',
+    name: 'step步骤条',
     component: () => import('../views/step.vue')
   },
   {
     path: '/formValidate',
-    name: 'formValidate',
+    name: 'form表单校验',
     component: () => import('../views/formValidate.vue')
   },
   {
     path: '/formTime',
-    name: 'formTime',
+    name: '时间选择控件',
     component: () => import('../views/formTime.vue')
+  },
+  {
+    path: '/imgViewer',
+    name: '图片放大预览',
+    component: () => import('../views/imgViewer.vue')
   }
 ]
 

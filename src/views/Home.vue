@@ -29,6 +29,10 @@ export default {
         {
           id: 3,
           name: "时间选择控件"
+        },
+        {
+          id: 4,
+          name: "图片放大预览"
         }
       ]
     };
@@ -37,14 +41,16 @@ export default {
     goLink(id) {
       let routesName = "";
       if (id == 1) {
-        routesName = "step";
+        routesName = "/step";
       } else if (id == 2) {
-        routesName = "formValidate";
+        routesName = "/formValidate";
       } else if (id == 3) {
-        routesName = "formTime";
+        routesName = "/formTime";
+      }else if (id == 4) {
+        routesName = "/imgViewer";
       }
       let routes = this.$router.resolve({
-        name: routesName,
+        path: routesName,
         query: {}
       });
       window.open(routes.href, "_blank");
