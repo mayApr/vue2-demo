@@ -25,6 +25,10 @@ export default {
         {
           id: 2,
           name: "form表单校验"
+        },
+        {
+          id: 3,
+          name: "时间选择控件"
         }
       ]
     };
@@ -36,6 +40,8 @@ export default {
         routesName = "step";
       } else if (id == 2) {
         routesName = "formValidate";
+      } else if (id == 3) {
+        routesName = "formTime";
       }
       let routes = this.$router.resolve({
         name: routesName,
