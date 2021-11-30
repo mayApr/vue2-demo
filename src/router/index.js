@@ -28,6 +28,11 @@ const routes = [{
     path: '/imgViewer',
     name: '图片放大预览',
     component: () => import('../views/imgViewer.vue')
+  },
+  {
+    path: '/imgUpload',
+    name: '图片上传',
+    component: () => import('../views/imgUpload.vue')
   }
 ]
 

@@ -33,6 +33,10 @@ export default {
         {
           id: 4,
           name: "图片放大预览"
+        },
+        {
+          id: 5,
+          name: "图片上传"
         }
       ]
     };
@@ -48,6 +52,8 @@ export default {
         routesName = "/formTime";
       }else if (id == 4) {
         routesName = "/imgViewer";
+      }else if (id == 5) {
+        routesName = "/imgUpload";
       }
       let routes = this.$router.resolve({
         path: routesName,
